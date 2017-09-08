@@ -274,39 +274,39 @@ public class UMShareModule extends ReactContextBaseJavaModule implements Activit
 //        if (platform.equals("weixin")) {
 //            share_media = SHARE_MEDIA.WEIXIN;
 //        }
-        UMShareAPI.get(getCurrentActivity()).getPlatformInfo(getCurrentActivity(), share_media, new UMAuthListener() {
-            @Override
-            public void onStart(SHARE_MEDIA share_media) {
-
-            }
-
-            @Override
-            public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
-
-                WritableMap writableMap = Arguments.createMap();
-
-                Set<String> keySet = map.keySet();
-                Iterator<String> iter = keySet.iterator();
-                while (iter.hasNext()) {
-                    String key = iter.next();
-                    writableMap.putString(key, map.get(key));
-                }
-
-                promise.resolve(writableMap);
-
-            }
-
-            @Override
-            public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
-                promise.reject(throwable);
-
-            }
-
-            @Override
-            public void onCancel(SHARE_MEDIA share_media, int i) {
-
-            }
-        });
+//        UMShareAPI.get(getCurrentActivity()).getPlatformInfo(getCurrentActivity(), share_media, new UMAuthListener() {
+//            @Override
+//            public void onStart(SHARE_MEDIA share_media) {
+//
+//            }
+//
+//            @Override
+//            public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+//
+//                WritableMap writableMap = Arguments.createMap();
+//
+//                Set<String> keySet = map.keySet();
+//                Iterator<String> iter = keySet.iterator();
+//                while (iter.hasNext()) {
+//                    String key = iter.next();
+//                    writableMap.putString(key, map.get(key));
+//                }
+//
+//                promise.resolve(writableMap);
+//
+//            }
+//
+//            @Override
+//            public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
+//                promise.reject(throwable);
+//
+//            }
+//
+//            @Override
+//            public void onCancel(SHARE_MEDIA share_media, int i) {
+//
+//            }
+//        });
     }
 
     @Override
