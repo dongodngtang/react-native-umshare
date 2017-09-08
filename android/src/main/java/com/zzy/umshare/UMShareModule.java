@@ -271,9 +271,9 @@ public class UMShareModule extends ReactContextBaseJavaModule implements Activit
     public void login(String platform, final Promise promise) {
 
         SHARE_MEDIA share_media = SHARE_MEDIA.QQ;
-        if (platform.equals("weixin")) {
-            share_media = SHARE_MEDIA.WEIXIN;
-        }
+//        if (platform.equals("weixin")) {
+//            share_media = SHARE_MEDIA.WEIXIN;
+//        }
         UMShareAPI.get(getCurrentActivity()).getPlatformInfo(getCurrentActivity(), share_media, new UMAuthListener() {
             @Override
             public void onStart(SHARE_MEDIA share_media) {
