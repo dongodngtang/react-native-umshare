@@ -276,18 +276,16 @@ public class UMShareModule extends ReactContextBaseJavaModule implements Activit
             share_media = SHARE_MEDIA.WEIXIN;
         }
 
+ UMShareAPI.get(mContext).deleteOauth(getCurrentActivity(), share_media, new UMAuthListener() {
 
-        UMShareAPI.get(mContext).deleteOauth(getCurrentActivity(), share_media, new UMAuthListener() {
             @Override
-            public void onError(SHARE_MEDIA platform, int arg1,
-                                Throwable arg2) {
-
+            public void onStart(SHARE_MEDIA share_media) {
 
             }
 
             @Override
-            public void onComplete(SHARE_MEDIA platform, int arg1,
-                                   Map<String, String> arg2) {
+            public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+
                 UMShareAPI.get(getCurrentActivity()).doOauthVerify(getCurrentActivity(), share_media, new UMAuthListener() {
                     @Override
                     public void onStart(SHARE_MEDIA share_media) {
@@ -325,13 +323,18 @@ public class UMShareModule extends ReactContextBaseJavaModule implements Activit
             }
 
             @Override
-            public void onCancel(SHARE_MEDIA platform, int arg1) {
+            public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
 
 
             }
 
+            @Override
+            public void onCancel(SHARE_MEDIA share_media, int i) {
+
+            }
 
         });
+
 
 
     }
